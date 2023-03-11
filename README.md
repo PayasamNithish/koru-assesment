@@ -44,3 +44,7 @@ $ npm run build
 # The server will initialize on <http://localhost:3000>
 # The client will initialize on <http://localhost:4300>
 ```
+
+## Credentials ##
+username: demo
+password: Dummy@123

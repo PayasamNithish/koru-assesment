@@ -8,8 +8,12 @@ import { AppService } from '../../../common/services/app.service';
   styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent implements OnInit {
-  userName: string = 'demo';
-  password: string = 'Dummy@123';
+  private readonly USER_NAME: string = 'demo';
+  private readonly PASSWORD: string = 'Dummy@123';
+
+  userName: string = this.USER_NAME;
+  password: string = this.PASSWORD;
+  
   showError = false;
   constructor(private router: Router, private appService: AppService) { }
 
@@ -20,8 +24,9 @@ export class LoginPageComponent implements OnInit {
     if (!this.password || !this.userName) {
       return;
     }
+    this.userName = (this.userName || '').trim().toLowerCase();
     this.showError = false;
-    if (this.password === 'Dummy@123' && this.userName === 'demo') {
+    if (this.password === this.PASSWORD && this.userName === this.USER_NAME) {
       this.appService.setAuthentication(true);
       this.router.navigate(['data-table']);
     } else {
